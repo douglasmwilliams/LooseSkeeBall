@@ -38,7 +38,7 @@ fetch('./season331-team-games.csv').then(r=>{if(!r.ok)throw Error('HTTP '+r.stat
 (function(){
 const $r=id=>document.getElementById(id);
 const fmtR=n=>Number.isFinite(n)?Math.round(n).toLocaleString():'—';
-const safeR=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;':'&quot;',"'":'&#39;'}[c]));
+const safeR=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let players=[],teams=[],league=[],loaded=false;
 const nav=[...document.querySelectorAll('#referenceNav button')];
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.hidden=p.id!==id);nav.forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(loaded)renderRefs();location.hash=id==='matchPage'?'match':id.replace('Page','');}
